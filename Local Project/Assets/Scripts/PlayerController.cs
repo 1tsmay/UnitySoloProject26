@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,5 +41,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.Raycast(jumpRay.origin, jumpRay.direction, jumpDetectDistance))
             rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
