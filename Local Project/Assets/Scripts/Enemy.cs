@@ -1,16 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class Player
+public class Enemy : MonoBehaviour
 {
-}
 
-public image HealthBar;
-public class GameManager : MonoBehaviour
+    public bool isFollowing=false;
 
-{
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         
@@ -21,4 +18,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
 }

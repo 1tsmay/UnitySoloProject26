@@ -2,12 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float jumpHeight = 10.0f;
     public float jumpDetectDistance = 1f;
+
 
     Ray2D jumpRay;
     Vector2 moveInput = Vector2.zero;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         jumpRay = new Ray2D();
+        
     }
 
     // Update is called once per frame
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
     {
         jumpRay.origin = transform.position;
         jumpRay.direction = -transform.up;
+
+        //rb.rotation = Mathf.Atan2(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x)  * Mathf.Rad2Deg;
 
         rb.linearVelocityX = moveInput.x * speed;
     }
@@ -43,13 +48,5 @@ public class PlayerController : MonoBehaviour
             rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
+    
 }
