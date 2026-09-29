@@ -4,8 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public bool isFollowing = false;
 
-    public int health = 5;
-    public int maxHealth = 5;
+    
 
     public float speed = 5;
     public float detectionDistance = 5;
@@ -47,13 +46,7 @@ public class Enemy : MonoBehaviour
             rb.linearVelocityX = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "MeleeZone")
-        {
-            health--;
-        }
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

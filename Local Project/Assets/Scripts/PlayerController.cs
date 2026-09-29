@@ -6,6 +6,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
+    public int health = 5;
+    public int maxHealth = 5;
+
     public float speed = 5.0f;
     public float jumpHeight = 10.0f;
     public float jumpDetectDistance = 1f;
@@ -47,6 +50,12 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.Raycast(jumpRay.origin, jumpRay.direction, jumpDetectDistance))
             rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Hazard")
+        {
+            health--;
+        }
+    }
 
-    
 }
