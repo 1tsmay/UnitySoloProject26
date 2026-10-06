@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+
+
+
 public class Permaspin : MonoBehaviour
 {
     private object sawblade;
@@ -14,7 +18,10 @@ public class Permaspin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sawblade.pos.y = UnityEditor.Build.Player.pos.y - 100
+        
+
+
+        
     }
 }
 
