@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -136,12 +137,12 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (onGround)
-            rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
+        if (rigidbody.IsSleeping())
+        rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Hazard")
+        if (collision.gameObject.tag == "Spike")
         {
             health--;
         }
