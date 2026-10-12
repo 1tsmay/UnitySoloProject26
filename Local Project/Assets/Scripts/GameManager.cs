@@ -1,10 +1,11 @@
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEditor.AdaptivePerformance.Editor;
 using System;
+using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor.AdaptivePerformance.Editor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,38 +13,89 @@ public class GameManager : MonoBehaviour
 
     public Image healthBar;
 
-    public GameObject pauseMenu;
+    public GameObject PauseMenu;
 
     public bool paused = false;
     public bool enemiesGone = false;
 
     public int enemyCount = 0;
 
+
+
+
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
+    void Start()
+    {
+        PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 
-// Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
-public class EntityDeath : MonoBehaviour
-{
-    // temporary placeholder 
-    public Action playerDeath = null;
-
-    public void Update()
+    public class EntityDeath : MonoBehaviour
     {
-        var entityDeath = GameObject.FindGameObjectWithTag("Chomper") || GameObject.FindGameObjectWithTag("Watcher") || GameObject.FindGameObjectWithTag("Player").transform;
-        Vector3 endpoint = new Vector3(0f, -30.0f, 0f);
+        // temporary placeholder 
+        public Action playerDeath = null;
 
-        if ((transform.position == endpoint) && !(transform.Find("Player")))
+        public void Update()
         {
-            Destroy(gameObject);
+            var entityDeath = GameObject.FindGameObjectWithTag("Chomper") || GameObject.FindGameObjectWithTag("Watcher") || GameObject.FindGameObjectWithTag("Player").transform;
+            Vector3 endpoint = new Vector3(0f, -30.0f, 0f);
+
+            if ((transform.position == endpoint) && !(transform.Find("Player")))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                playerDeath();
+            }
+        }
+    }
+
+    public void Pause()
+    {
+        paused = !paused;
+
+        PauseMenu.SetActive(paused);
+
+        if (paused)
+        {
+            Time.timeScale = 0;
+            PauseMenu.SetActive(true);
         }
         else
         {
-            playerDeath();
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
         }
     }
-}
+
+    public void LoadLevel(int levelID)
+    {
+        if (levelID >= SceneManager.sceneCountInBuildSettings)
+            Debug.Log("Level ID is too high: " + levelID);
+        else
+            SceneManager.LoadScene(levelID);
+    }
+
+    public void LoadNextNevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void MainMenu()
+    {
+        LoadLevel(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    }
+
 
 
 

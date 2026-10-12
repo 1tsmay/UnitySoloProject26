@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     PlayerInput input;
     Rigidbody2D rb;
+    public bool isMoving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,12 +43,13 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         jumpRay = new Ray2D();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         onGround = Physics2D.Raycast(jumpRay.origin, jumpRay.direction, jumpDetectDistance);
 
         jumpRay.origin = transform.position;
@@ -135,10 +138,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+
     public void Jump()
     {
-        if (rigidbody.IsSleeping())
-        rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
+
+
+
+        if (onGround || Mathf.Approximately(rb.linearVelocity.y, 0))
+        {
+            rb.AddForceY(jumpHeight, ForceMode2D.Impulse);
+        }  
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
