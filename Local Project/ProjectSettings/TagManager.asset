@@ -11,6 +11,7 @@ TagManager:
   - Chomper
   - Watcher
   - PauseMenu
+  - Door
   layers:
   - Default
   - TransparentFX

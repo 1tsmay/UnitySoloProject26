@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
     {
         paused = !paused;
 
-        PauseMenu.SetActive(paused);
+     
+        
 
         if (paused)
         {
