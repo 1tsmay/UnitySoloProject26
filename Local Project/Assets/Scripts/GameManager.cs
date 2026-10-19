@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        // myAnim = GetComponent<Animator>();
     }
 
     public class EntityDeath : MonoBehaviour
