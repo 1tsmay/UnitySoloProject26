@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         public void Update()
         {
             var entityDeath = GameObject.FindGameObjectWithTag("Chomper") || GameObject.FindGameObjectWithTag("Watcher") || GameObject.FindGameObjectWithTag("Player").transform;
-            Vector3 endpoint = new Vector3(0f, -30.0f, 0f);
+            Vector3 endpoint = new Vector3(0f, -50.0f, 0f);
 
             if ((transform.position == endpoint) && !(transform.Find("Player")))
             {

@@ -1,10 +1,15 @@
 using System.Collections;
+using TMPro;
+using Unity.GraphToolkit.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+
+
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -49,7 +54,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         onGround = Physics2D.Raycast(jumpRay.origin, jumpRay.direction, jumpDetectDistance);
 
         jumpRay.origin = transform.position;
