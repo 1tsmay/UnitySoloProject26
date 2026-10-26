@@ -1,8 +1,4 @@
 using System;
-using TMPro;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,7 +38,7 @@ public class GameManager : MonoBehaviour
         public void Update()
         {
             var entityDeath = GameObject.FindGameObjectWithTag("Chomper") || GameObject.FindGameObjectWithTag("Watcher") || GameObject.FindGameObjectWithTag("Player").transform;
-            Vector3 endpoint = new Vector3(0f, -50.0f, 0f);
+            Vector3 endpoint = new Vector3(0f, -100.0f, 0f);
 
             if ((transform.position == endpoint) && !(transform.Find("Player")))
             {
@@ -59,9 +55,6 @@ public class GameManager : MonoBehaviour
     {
         paused = !paused;
 
-     
-        
-
         if (paused)
         {
             Time.timeScale = 0;
@@ -76,14 +69,15 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelID)
     {
-        if (levelID >= SceneManager.sceneCountInBuildSettings)
+        if (levelID > SceneManager.sceneCountInBuildSettings)
             Debug.Log("Level ID is too high: " + levelID);
         else
             SceneManager.LoadScene(levelID);
     }
 
-    public void LoadNextNevel()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Door")
         LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

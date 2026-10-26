@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.Cinemachine;
 using Unity.GraphToolkit.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public bool sprintLock = false;
     public bool regenStamina = false;
     public bool toggleSprint = true;
+
+    public GameManager gm;
 
 
     Ray2D jumpRay;
@@ -142,7 +145,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Door" && GameObject.Find("GameManager").GetComponent<GameManager>().enemiesGone)
+        {
+           
+            GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
+        }
+    }
+
+
 
     public void Jump()
     {
