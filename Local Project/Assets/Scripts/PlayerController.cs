@@ -150,7 +150,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Door" && GameObject.Find("GameManager").GetComponent<GameManager>().enemiesGone)
         {
            
-            GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
+            // GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
+            // why the FUCK is this returning an error
+            // ts pmo
         }
     }
 
