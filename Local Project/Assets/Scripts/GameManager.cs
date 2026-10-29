@@ -92,6 +92,11 @@ public class GameManager : MonoBehaviour
         LoadLevel(0);
     }
 
+    public void SolomonUlted()
+    {
+        LoadLevel(0);
+    }
+
     public void Quit()
     {
         Application.Quit();
