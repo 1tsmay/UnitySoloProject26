@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -75,10 +76,15 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(levelID);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public void NextNevel()
     {
-        if (collision.gameObject.tag == "Door")
         LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void PrevLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void MainMenu()

@@ -12,6 +12,8 @@ TagManager:
   - Watcher
   - PauseMenu
   - Door
+  - Reverse Door
+  - Collectible
   layers:
   - Default
   - TransparentFX

@@ -2807,7 +2807,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!212 &277743465
 SpriteRenderer:
   serializedVersion: 3
@@ -6892,7 +6892,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!212 &868127396
 SpriteRenderer:
   serializedVersion: 3
@@ -9016,7 +9016,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!61 &1055004878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!61 &1199764549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11446,7 +11446,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!212 &1375634222
 SpriteRenderer:
   serializedVersion: 3
@@ -15715,7 +15715,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!61 &1986632167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17765,7 +17765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698006323528732257, guid: d2efd0c46df1e4847947db91c8c0c26b, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5338581374065606598, guid: d2efd0c46df1e4847947db91c8c0c26b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17826,11 +17826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030437591027888638, guid: 4a1fa4fbd795d6b4091fd63b56df788d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.785469
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 9030437591027888638, guid: 4a1fa4fbd795d6b4091fd63b56df788d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.89474
+      value: 5.66
       objectReference: {fileID: 0}
     - target: {fileID: 9030437591027888638, guid: 4a1fa4fbd795d6b4091fd63b56df788d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17879,7 +17879,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6857484820559391543, guid: c5db833603eee1f4795acb8c5655122b, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7580431149484228022, guid: c5db833603eee1f4795acb8c5655122b, type: 3}
       propertyPath: m_Name

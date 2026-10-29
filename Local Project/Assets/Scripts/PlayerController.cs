@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         jumpRay = new Ray2D();
-
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -147,13 +148,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Door" && GameObject.Find("GameManager").GetComponent<GameManager>().enemiesGone)
-        {
-           
-            // GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
-            // why the FUCK is this returning an error
-            // ts pmo
-        }
+        
     }
 
 
@@ -173,6 +168,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Spike")
         {
             health--;
+        }
+
+        if (collision.gameObject.tag == "Door")
+        {
+
+            gm.NextNevel();
+        }
+        if (collision.gameObject.tag == "Reverse Door")
+        {
+            gm.PrevLevel();
         }
     }
     IEnumerator sprintReset()
